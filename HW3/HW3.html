@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Catamaran' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Darker Grotesque' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Maven Pro' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Work Sans' rel='stylesheet'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:300&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: auto;
+            overflow-x: hidden;
+        }
+
+        .navbar {
+            background-color: white;
+            height: 51px;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            width: 737px;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 10;
+        }
+
+        .migibell {
+            color: #624f97;
+            font-style: italic;
+            font-weight: lighter;
+            margin-left: 90px;
+            margin-top: 20px;
+            width: 100px;
+            float: left;
+        }
+
+        .menubar {
+            width: 500px;
+            float: left;
+            height: 51px;
+            margin-left: 45px;
+        }
+
+        .menutext {
+            margin-left: 140px;
+            color: #b4b6b7;
+            font-family: 'Catamaran';
+            font-size: 11px;
+        }
+
+        .cell {
+            float: left;
+            margin-top: 21px;
+            margin-right: 15px;
+        }
+
+        .home {
+            background-image: url("http://csci571.com/hw/hw3/images/coffee2.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 558px;
+            max-width: 735px;
+            /*  background-size: cover;*/
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 10;
+            background-size: auto 740px;
+        }
+
+        .ladyblock {
+            width: 358px;
+            height: 193px;
+            background-color: white;
+            z-index: 1;
+            top: 205px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .textB {
+            background-color: white;
+            color: #48277b;
+            height: 173px;
+            width: 218px;
+            margin-left: 140px;
+            margin-top: -205px;
+
+        }
+
+        .face {
+            height: 193px;
+            width: 130px;
+        }
+
+        .face img {
+            padding-top: 30px;
+            padding-left: 25px;
+            height: 135px;
+            width: 105px;
+            object-fit: cover;
+        }
+
+        .projects {
+            width: 735px;
+            height: 433px;
+            background-color: white;
+            margin-left: auto;
+            margin-right: auto;
+            font-family: Maven Pro;
+            z-index: 0;
+
+        }
+
+        .project {
+            width: 245px;
+            float: left;
+            background-color: #5097ba;
+            height: 100%;
+
+        }
+
+        .editorial {
+            float: left;
+            width: 245px;
+            background-color: #48277b;
+            height: 100%
+        }
+
+        .projettext {
+            color: white;
+            margin-left: 30px;
+            margin-top: 185px;
+        }
+
+        .innovative {
+            float: left;
+            width: 245px;
+            background-color: #996ac2;
+            height: 100%;
+        }
+
+        .portfolio {
+            background-image: url("http://csci571.com/hw/hw3/images/coffee1.jpg");
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 310px;
+            max-width: 735px;
+            /*  background-size: cover;*/
+            background-size: auto 740px;
+            margin-left: auto;
+            margin-right: auto;
+            z-index: 10;
+        }
+
+        .about {
+            background-color: #48277b;
+            max-width: 735px;
+            height: 387px;
+            z-index: 20;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .abouttext {
+            color: #fefefe;
+            background-attachment: fixed;
+            margin-left: 90px;
+            padding-top: 115px;
+            font-family: Work Sans;
+        }
+
+        .contact {
+            color: #48277b;
+            /*  background-attachment: fixed;*/
+            z-index: 0;
+            height: 343px;
+            max-width: 735px;
+            margin-left: auto;
+            left: 0;
+            right: 0;
+            margin-right: auto;
+            position: absolute;
+
+        }
+
+        .contactinfo {
+            float: left;
+            width: 265px;
+            margin-left: 100px;
+            margin-top: 80px;
+            font-family: 'Raleway';
+        }
+
+        .form {
+            float: left;
+            margin-top: 108px;
+            width: 275px;
+            margin-left: 365px;
+            position: absolute;
+            color: #48277b;
+        }
+
+        .form input[type=text] {
+            width: 273px;
+            outline-color: #48277b;
+            color: #48277b;
+            border: 1px solid #48277b;
+            margin-bottom: 3px;
+            font-size: 10px;
+            height: 15px;
+            font-family: sans-serif;
+        }
+
+        .form textarea {
+            width: 273px;
+            outline-color: #48277b;
+            color: #48277b;
+            border: 1px solid #48277b;
+            margin-bottom: 3px;
+            font-size: 10px;
+            height: 15px;
+            font-family: sans-serif;
+            resize: none;
+        }
+
+        .form placeholder {
+            color: #48277b;
+        }
+
+        .form input[type=submit] {
+            background-color: #48277b;
+            color: #fefefe;
+            padding: 3px 10px;
+            border: none;
+            font-size: 12px;
+            font-style: italic;
+            font-family: 'Times New Roman';
+            float: right;
+            width: 62px;
+            height: 23px;
+        }
+
+        /*
+.form::placeholder {
+  color: brown;                                                                       
+}
+*/
+
+    </style>
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="migibell">
+            <span>Migi Bell</span>
+        </div>
+        <div class="menubar">
+            <div class="menutext">
+                <div class="cell" style="color: #48277b;">HOME</div>
+                <div class="cell">PORTFOLIO</div>
+                <div class="cell">ABOUT ME</div>
+                <div class="cell">CONTACT ME</div>
+            </div>
+        </div>
+    </div>
+
+    <div class='home' overflow="hidden">
+    </div>
+
+    <div class="ladyblock" overflow="hidden">
+        <div class="face">
+            <img src="http://csci571.com/hw/hw3/images/face.jpg">
+        </div>
+        <div class="textB">
+            <div style="margin-left: 10px; margin-top: 23px;">
+                <br>
+                <span style="font-size: 12px; font-style: italic; line-height: 0.8;">Migi Bell</span><br>
+                <span style="font-size: 28px; font-family: 'Raleway', sans-serif; line-height: 0.9;">FOOD</span><br>
+                <span style="font-size: 34px; font-family: 'Maven Pro'; font-weight: bolder; text-shadow: 0px 1px, 1px 0px, 1px 1px; line-height: 0.8;">STYLIST.</span><br>
+                <span style="font-weight: bolder; text-shadow: 0px 1px, 1px 0px, 1px 1px; line-height: 0.9;">______</span><br><br>
+                <span style="font-size: 15px; line-height: 0.7; font-family: 'Muli', sans-serif;">PORTFOLIO ></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="projects" overflow="hidden">
+        <div class="project">
+            <div class="projettext">
+                <span style="font-size: 11px;">PROJECTS<br></span>
+                <span style="font-size: 18px; font-weight: bolder; text-shadow: 1px 0 0 currentColor;">PROJECTS&nbsp;></span>
+            </div>
+        </div>
+
+        <div class="editorial">
+            <div class="projettext">
+                <span style="font-size: 11px;">PROJECTS<br></span>
+                <span style="font-size: 18px; font-weight: bolder; text-shadow: 1px 0 0 currentColor;">EDITORIAL&nbsp;></span>
+            </div>
+        </div>
+
+        <div class="innovative">
+            <div class="projettext">
+                <span style="font-size: 11px;">PROJECTS<br></span>
+                <span style="font-size: 18px; font-weight: bolder; text-shadow: 1px 0 0 currentColor;">INNOVATIVE&nbsp;></span>
+
+            </div>
+        </div>
+    </div>
+
+    <div class='portfolio' overflow="hidden">
+    </div>
+
+    <div class="about" overflow="hidden">
+        <div class="abouttext">
+            <div style="font-size: 10px; font-weight: bold; line-height: 0.5">- Hello -</div><br>
+            <div style="font-size: 27px; width: 735px; letter-spacing: -1px;">
+                Lorem ipsum dolor sit amet, consectetur <br>
+                adipiscing elit, sed do eiusmod tempor <br>
+                incididunt ut labore et dolore magna aliqua.</div>
+        </div>
+    </div>
+
+    <div class="contact">
+        <div class="contactinfo">
+            <div style="font-size: 10px"><strong>- Get In Touch -</strong></div>
+            <div style="font-size: 28px; padding-top: 10px;">Contact Me</div>
+            <div style="font-size: 9px; padding-top: 3px;">700 Morey Francois Street, San Francisco, CA 94148</div>
+            <div style="font-size: 9px; padding-top: 3px;">info@lorem.com&nbsp;&nbsp;|&nbsp;&nbsp;Tel: 123-555-1212</div><br><br><br>
+            <div style="font-size: 9px; padding-top: 15px;">&#169; 2023 by Migi Bell.</div>
+        </div>
+
+        <div class="form">
+            <form>
+                <input type="text" placeholder="&nbsp;&nbsp;Name"><br>
+                <input type="text" placeholder="&nbsp;&nbsp;Email"><br>
+                <input type="text" placeholder="&nbsp;&nbsp;Phone"><br>
+                <textarea placeholder="&#10;&nbsp;&nbsp;Type your message here..." style="height: 75px;"></textarea><br>
+                <div>
+                    <input type="submit" value="Submit" align="right">
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

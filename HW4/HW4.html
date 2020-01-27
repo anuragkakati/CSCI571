@@ -1,0 +1,149 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        .form {
+            text-align: center;
+            vertical-align: middle;
+            margin-top: 150px;
+        }
+
+        .form input[type=submit] {
+            margin-top: 15px;
+        }
+
+    </style>
+
+    <script LANGUAGE="JavaScript">
+        function getJSONdata(formData) {
+            var URL = formData.url.value;
+
+            if (URL.length == 0) {
+                alert("ERROR : Enter a JSON filename");
+                return;
+            }
+            xmlhttpReq = new XMLHttpRequest();
+            xmlhttpReq.open("GET", URL, false);
+            try {
+                xmlhttpReq.send();
+            } catch (error) {
+                alert("ERROR : JSON file not found");
+                return;
+            }
+
+            try {
+                jsonObject = JSON.parse(xmlhttpReq.responseText);
+            } catch (error) {
+                alert("ERROR : Error in parsing JSON file");
+                return;
+            }
+
+            if (!jsonObject.Mainline.Table.hasOwnProperty('Row')) {
+                alert("ERROR : JSON file doesn't contain any Car Manufacturer data");
+                return;
+            }
+
+            jsonObject.onload = generateNewHTMLPage(jsonObject);
+
+            newWindow = window.open("", "Largest Manufacturers by Production (2017)", "height=800, width=1300");
+
+            newWindow.document.write(html_text);
+            newWindow.document.close();
+        }
+
+        function generateNewHTMLPage(jsonObject) {
+            root = jsonObject.DocumentElement;
+            html_text = "<html><head><title>Largest Manufacturers by Production (2017)</title></head><body>";
+            html_text += "<table border='2' width='100%'>";
+            html_text += "<tbody>";
+            html_text += "<tr>";
+            headerList = jsonObject.Mainline.Table.Header.Data;
+
+            for (i = 0; i < headerList.length; i++) {
+                html_text += "<th>" + headerList[i]; + "</th>";
+            }
+            html_text += "</tr>";
+
+            rowsList = jsonObject.Mainline.Table.Row;
+
+            for (i = 0; i < rowsList.length; i++) {
+                rowData = rowsList[i];
+                html_text += "<tr>";
+                var columns = Object.keys(rowData);
+
+                for (j = 0; j < columns.length; j++) {
+                    property = columns[j];
+
+                    if (rowData[property] == null || rowData[property].length == 0) {
+                        html_text += "<td height=\"225px\">"
+                        "</td>";
+                        continue;
+                    }
+
+                    if (property == "Rank") {
+                        html_text += "<td>" + rowData[property] + "</td>";
+                    }
+
+                    if (property == "Group") {
+                        html_text += "<td>" + rowData[property] + "</td>";
+                    }
+
+                    if (property == "Hubs") {
+                        var hub = rowData[property]["Hub"];
+                        if (hub.length == 0) {
+                            html_text += "<td>"
+                            "</td>";
+                            continue;
+                        }
+                        html_text += "<td><ul>";
+                        var isFirst = true;
+                        for (k = 0; k < hub.length; k++) {
+                            if (Boolean(hub[k]) == false) {
+                                continue;
+                            }
+
+                            if (isFirst == true) {
+                                html_text += "<li><b>" + hub[k] + "</b></li>";
+                                isFirst = false;
+                            } else {
+                                html_text += "<li>" + hub[k] + "</li>";
+                            }
+                        }
+                        html_text += "</ul></td>";
+                    }
+
+                    if (property == "Vehicles") {
+                        html_text += "<td>" + rowData[property] + "</td>";
+                    }
+
+                    if (property == "HomePage") {
+                        html_text += "<td><a href=" + rowData[property] + ">" + rowData[property] + "</a></td>";
+                    }
+
+                    if (property == "Logo") {
+                        html_text += "<td><img src=" + rowData[property] + " alt='logo' width='225px' height='225px'></td>";
+                    }
+                }
+
+                html_text += "</tr>";
+            }
+            html_text += "</tbody>";
+            html_text += "</table>";
+            html_text += "</bo" + "dy></html>";
+        }
+
+    </script>
+</head>
+
+<body>
+    <div class="form">
+        <h3>Enter URL for largest manufacturer by production (2017) List JSON File</h3>
+        <form name="myform" method="POST" id="jsonfilename">
+            <input type="text" name="url"><br>
+            <input type="submit" value="Submit Query" name="submit" onClick="getJSONdata(this.form)">
+        </form>
+    </div>
+</body>
+
+</html>

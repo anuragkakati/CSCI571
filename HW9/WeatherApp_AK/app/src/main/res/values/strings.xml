@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">WeatherApp</string>
+    <string name="search_hint">Search...</string>
+    <string name="title_activity_detailed_weather">Detailed Weather</string>
+    <string name="tab_text_1">Today</string>
+    <string name="tab_text_2">Weekly</string>
+    <string name="tab_text_3">Photos</string>
+    <string name="shared_preference_file">WeatherAppSharedPreferenceFile</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
