@@ -1,0 +1,233 @@
+@import "../../../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
+
+@media (max-width:450px) {
+  .myNavBar {
+    margin-top: 10%;
+  }
+
+  #padding {
+    display: none;
+  }
+
+  .myNav {
+    width: 20%;
+  }
+
+  .nav-link{
+    padding-left: 5%;
+  }
+
+  #cardID {
+    margin-top: 5%;
+  }
+
+  #cityID {
+    font-size: 120%;
+    margin-top: 5%;
+  }
+
+  #tzID {
+    font-size: 120%;
+    color: #2f4f4f;
+  }
+
+  #tempID {
+    font-size: 150%;
+  }
+
+  #degreeID {
+    margin-bottom: 15%;
+    height: 5%;
+    width: 5%;
+  }
+
+  #summaryID {
+    font-size: 100%;
+    margin-top: 2%;
+  }
+
+  #sealID {
+    width: 60%;
+    height: 60%;
+    margin-left: 40%;
+  }
+
+  #textID {
+    width: 50%;
+  }
+
+  #sealDivID {
+    width: 50%;
+  }
+
+  .logoID {
+    width: 16.66%;
+  }
+
+  .logo {
+    width: 90%;
+    height: 65%;
+  }
+
+  #inputParam {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #modalTextID {
+    width: 60%
+  }
+
+  #modelImageID {
+    width: 40%;
+  }
+
+  #imID {
+    height: 60%;
+    width: 70%;
+  }
+
+  #modalCityID {
+    font-size: 180%;
+  }
+
+  #modalTempID {
+    font-size: 180%
+  }
+}
+
+.myNavBar {
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*.twitter {*/
+/*text-align: right;*/
+/*}*/
+
+/*.gap {*/
+/*width: 1%;*/
+/*}*/
+
+.navAnchor {
+  text-decoration:  none;
+  color: black;
+}
+
+.currently {
+  margin-top: 2%;
+  background-color: #89d0f2;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
+  margin-bottom: 5%;
+}
+
+.cityname {
+  font-size: 250%;
+  margin-top: 5%;
+}
+
+.timezone {
+  font-size: 250%;
+  color: #2f4f4f;
+}
+
+.temperature {
+  font-size: 300%;
+}
+
+.summary {
+  font-size: 200%;
+  margin-top: 2%;
+}
+
+.seal {
+  width: 70%;
+  height: 70%;
+}
+
+.selectParam {
+  margin-top: 2%;
+}
+
+.chart {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tail {
+  text-align: center;
+}
+
+.degree {
+  margin-bottom: 15%;
+}
+
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 35%;
+}
+
+.detailsRow {
+  margin-top: 5%;
+  margin-bottom: 2%;
+}
+
+.detailsImg {
+  text-align: center;
+}
+
+#chartContainer {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5%;
+}
+
+.weeklyChart {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.myModalHeader {
+  background-color: #518ba6;
+}
+
+.myModalBody {
+  background-color: #89d0f2;
+}
+
+.myModalFooter {
+  background-color: #89d0f2;
+}
+
+.modalCity {
+  font-size: 200%;
+}
+
+.modalTemperature {
+  font-size: 250%;
+}
+
+.modalSummary {
+}
+
+.modalIcon {
+  height: 60%;
+  width: 38%;
+  margin-top: 20%;
+}
+
+.navImg:hover {
+  cursor: pointer;
+}
+
+#favButtonOn {
+  color: #d99c06;
+}
+

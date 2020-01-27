@@ -1,0 +1,46 @@
+@media (max-width:450px) {
+  .favID {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.error {
+  background-color: #f8ecbf;
+  color: #7d621e;
+  margin-top: 5%;
+}
+
+.deleteImg:hover {
+  cursor: pointer;
+  color: #d99c06;
+}
+
+.favTable {
+  margin-top: 5%;
+}
+
+.favButton {
+  color: #d99c06;
+}
+
+.routeLink {
+  color: #0000EE;
+  cursor:pointer;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td,
+.table-striped>tbody>tr:nth-child(odd)>th {
+  background-color: #89d0f2;
+}
+
+.table-striped>tbody>tr:nth-child(even)>td,
+.table-striped>tbody>tr:nth-child(even)>th {
+  background-color: #6591ac;
+}
+
+.tableHeader {
+  background-color: #6591ac;
+}
+

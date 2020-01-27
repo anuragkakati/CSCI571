@@ -1,0 +1,146 @@
+<div *ngIf="showProgressBar" class="progress container">
+  <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+</div>
+
+<div *ngIf="!showProgressBar" class="myNavBar col-md-9">
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="nav-item myNav">
+      <a class="nav-link active navAnchor" href="#current" id="current-tab" data-toggle="tab">Current</a>
+    </li>
+    <li class="nav-item myNav">
+      <a class="nav-link navAnchor" href="#hourly" (click)="initialChartData()" id="hourly-tab" data-toggle="tab" role="tab">Hourly</a>
+    </li>
+    <li class="nav-item myNav">
+      <a class="nav-link navAnchor" href="#weekly" (click)="rangeChart()" id="weekly-tab" data-toggle="tab" role="tab">Weekly</a>
+    </li>
+    <div class="col-md-7" id="padding">
+    </div>
+    <li class="twitter">
+      <!--<img class="navImg" (click)="tweet()" src="https://csci571.com/hw/hw8/Images/Twitter.png" width="40" height="40">-->
+      <button type="button" (click)="tweet()" class="btn btn-light buttonBorder">
+        <img class="navImg" src="https://csci571.com/hw/hw8/Images/Twitter.png" width="30" height="30">
+      </button>
+    </li>
+    <li>
+      <!--<img class="navImg" (click)="makeFavorite()" src="../assets/empty_star.png" width="40" height="40">-->
+      <button type="button" (click)="makeFavorite()" class="btn btn-light buttonBorder" id="starButtonID">
+        <i class="material-icons" id="favButtonOff">star_border</i>
+      </button>
+    </li>
+  </ul>
+</div>
+
+<div *ngIf="!showProgressBar" class="tab-content" id="nav-tabContent">
+  <!--Current Tab-->
+  <div class="tab-pane fade show in active" id="current">
+    <div class="container currently col-lg-6" id="cardID">
+      <div class="container">
+        <div class="row">
+          <div class="textblock col-sm-7" id="textID">
+            <div class="cityname" id="cityID">{{city}}</div>
+            <div class="timezone" id="tzID">{{getTimezone()}}</div>
+            <div class="temperature" id="tempID">{{getTemperature()}}
+              <img class="degree" id="degreeID" src="https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_shape_oval-512.png" width="15" height="15"> F
+            </div>
+            <div class="summary" id="summaryID">{{getSummary()}}
+            </div>
+          </div>
+          <div class="seal col-sm-5" id="sealDivID">
+            <img class="seal center-block" id="sealID" src={{getSealURL()}}>
+          </div>
+        </div>
+      </div>
+      <div class="row detailsRow">
+        <div *ngIf="getHumidity() != 0" class="logoID col-sm-2 detailsImg"><img class="logo" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-16-512.png" width="50" height="50"
+                                                                         matTooltip="Humidity" matTooltipPosition="above"><div>{{getHumidity()}}</div></div>
+        <div *ngIf="getPressure() != 0" class="logoID col-sm-2 detailsImg"><img class="logo" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-25-512.png" width="50" height="50"
+                                                                         matTooltip="Pressure" matTooltipPosition="above"><div>{{getPressure()}}</div></div>
+        <div *ngIf="getWindSpeed() != 0" class="logoID col-sm-2 detailsImg"><img class="logo" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-27-512.png" width="50" height="50"
+                                                                          matTooltip="WindSpeed" matTooltipPosition="above"><div>{{getWindSpeed()}}</div></div>
+        <div *ngIf="getVisibility() != 0" class="logoID col-sm-2 detailsImg"><img class="logo" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-30-512.png" width="50" height="50"
+                                                                           matTooltip="Visibility" matTooltipPosition="above"><div>{{getVisibility()}}</div></div>
+        <div *ngIf="getCloudCover() != 0" class="logoID col-sm-2 detailsImg"><img class="logo" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-28-512.png" width="50" height="50"
+                                                                           matTooltip="CloudCover" matTooltipPosition="above"><div>{{getCloudCover()}}</div></div>
+        <div *ngIf="getOzone() != 0" class="logoID col-sm-2 detailsImg"><img class="logo" src="https://cdn2.iconfinder.com/data/icons/weather-74/24/weather-24-512.png" width="50" height="50"
+                                                                      matTooltip="Ozone" matTooltipPosition="above" ><div>{{getOzone()}}</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!--Hourly graph-->
+  <div class="tab-pane fade" id="hourly">
+    <div *ngIf="chartDataThere">
+    <div class="form-group row" >
+      <select class="container col-sm-2 selectParam" id="inputParam" name="inputParam" (change)="changeChartData()">
+        <option value="Temperature">Temperature</option>
+        <option value="Pressure">Pressure</option>
+        <option value="Humidity">Humidity</option>
+        <option value="Ozone">Ozone</option>
+        <option value="Visibility">Visibility</option>
+        <option value="Wind Speed">Wind Speed</option>
+      </select>
+    </div>
+    <div class="chart">
+      <div style="display: block">
+        <canvas baseChart
+                [datasets]="barChartData"
+                [labels]="barChartLabels"
+                [options]="barChartOptions"
+                [legend]="barChartLegend"
+                [chartType]="barChartType">
+        </canvas>
+      </div>
+    </div>
+    <div class="tail">Time difference from current hour</div>
+  </div>
+  </div>
+
+  <!--Weekly graph-->
+  <div class="tab-pane fade" id="weekly">
+    <div id="chartContainer" class="container col-xs-11">
+    </div>
+
+    <button type="button" id="modalButton" data-toggle="modal" data-target="#exampleModal" hidden>
+    </button>
+
+    <!--Modal html-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header myModalHeader">
+            <h5 class="modal-title" id="exampleModalLabel">{{dateString}}</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body myModalBody">
+            <div class="container">
+              <div class="row">
+                <div class="col-sm-6" id="modalTextID">
+                  <div class="modalCity" id="modalCityID">{{city}}</div>
+                  <div class="modalTemperature" id="modalTempID">{{modalTemperature}}
+                    <img class="degree" src="https://cdn3.iconfinder.com/data/icons/virtual-notebook/16/button_shape_oval-512.png" width="12" height="12"> F
+                  </div>
+                  <div class="modalSummary">{{modalSummray}}</div>
+                </div>
+                <div class="col-sm-6" id="modelImageID">
+                  <img id="imID" class="modalIcon mx-auto d-block" src={{modalIconURL}}>
+                </div>
+              </div>
+            </div>
+            <hr/>
+            <div>
+              <div class="col-md-6 float-right">
+                <div>Precipitation : {{modalPrecip}}</div>
+                <div>Chance of Rain : {{modalRain}} %</div>
+                <div>Wind Speed : {{modalWindSpeed}} mph</div>
+                <div>Humidity : {{modalHumidity}} %</div>
+                <div>Visibility : {{modalVisibility}} miles</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

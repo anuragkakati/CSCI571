@@ -1,0 +1,49 @@
+<div *ngIf="storedCityObjects.length === 0">
+  <div class="error container card col-md-10">
+    <div class="card-body">No Records.</div>
+  </div>
+</div>
+
+<div class="favTable container" id="favID" *ngIf="storedCityObjects.length !== 0">
+  <table class="table table-striped mytable-striped">
+    <thead class="tableHeader">
+    <tr>
+      <th class="text-center" scope="col">#</th>
+      <th class="text-center" scope="col">Image</th>
+      <th class="text-center" scope="col">City</th>
+      <th class="text-center" scope="col">State</th>
+      <th class="text-center" scope="col">Favorites</th>
+    </tr>
+    </thead>
+
+    <tbody class="text-center">
+      <tr *ngFor="let city of storedCityObjects; let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td>
+          <img src={{city.stateSealURL}} height="40" width="40">
+        </td>
+        <td>
+          <div class="routeLink">
+            <a (click)="routeToResults(city.city, city.state)">
+              {{city.city}}
+            </a>
+          </div>
+        </td>
+        <td>
+          <div>
+            {{city.state}}
+          </div>
+        </td>
+        <td>
+          <div>
+            <button type="button" (click)="removeFromFavorites(city.city)" class="btn btn-light buttonBorder">
+              <i class="material-icons favButton">delete</i>
+            </button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<router-outlet></router-outlet>
