@@ -9,7 +9,7 @@ function getDailyWeatherLocation(req, res) {
     var lon = req.query.lon;
     var lat = req.query.lat;
 
-    const darkSkyKey = '2219b4b59d97a1bd374872870bde5a90';
+    const darkSkyKey = 'your_key';
     const darkSkyURL = 'https://api.darksky.net/forecast/' +
                         darkSkyKey + '/' + lat + ',' + lon + ',' + timestamp;
     console.log('daily URL : ' + darkSkyURL);

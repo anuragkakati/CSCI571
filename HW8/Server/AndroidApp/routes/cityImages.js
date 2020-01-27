@@ -5,8 +5,8 @@ var https = require('https');
 function getCityImages(req, res) {
     console.log("Request for getCityImages received!");
     const city = req.query.city;
-    const searchEngineID = '011782248725805539749:9pp0oqo5gib';
-    const placesKey = 'AIzaSyBfjNSPYzkff1Bk0Lqej2LIpI3fLCwULEk';
+    const searchEngineID = 'your_key:9pp0oqo5gib';
+    const placesKey = 'your_key';
     const stateSealURL = 'https://www.googleapis.com/customsearch/v1?q='
         + city
         +'&cx='

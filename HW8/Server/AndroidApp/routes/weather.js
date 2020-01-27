@@ -12,7 +12,7 @@ function getWeather(req, res) {
     var city = req.query.city;
     var state = req.query.state;
 
-    const geocodeKey = 'AIzaSyC38RRupwg9zVFMWjhsTi3REcKXxHG5YfY';
+    const geocodeKey = 'your_key';
     const geocodeURL = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + street + ','+ city +
         ',' + state + '&key='+geocodeKey;
 
@@ -36,7 +36,7 @@ function getWeather(req, res) {
             console.log(lon + "\t" + lat);
 
             // Call DarkSky API using user lon and lat
-            const darkSkyKey = '2219b4b59d97a1bd374872870bde5a90';
+            const darkSkyKey = 'your_key';
             const darkSkyURL = 'https://api.darksky.net/forecast/' + darkSkyKey + '/' + lat + ',' + lon;
 
             console.log('darksky url : ' + darkSkyURL);

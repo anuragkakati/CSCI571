@@ -7,7 +7,7 @@ function getAutocomplete(req, res) {
     console.log("Request for autoComplete received!");
 
     const input = req.query.input;
-    const placesKey = 'AIzaSyBfjNSPYzkff1Bk0Lqej2LIpI3fLCwULEk';
+    const placesKey = 'your_key';
     const autocompleteURL = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input='
         + input + '&types=(cities)&language=en&key='
         + placesKey;

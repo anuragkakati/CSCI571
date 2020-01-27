@@ -146,8 +146,8 @@
         global $pageNumber;
         global $zero_results;
     
-        $GapiKey = "AIzaSyC38RRupwg9zVFMWjhsTi3REcKXxHG5YfY";
-        $darkskyKey = "2219b4b59d97a1bd374872870bde5a90";
+        $GapiKey = "your_key";
+        $darkskyKey = "your_key";
     
         $pageNumber = 0;
         $lon = 0;

@@ -7,8 +7,8 @@ function getStateSeal(req, res) {
     console.log("Request for stateSeal received!");
 
     const state = req.query.state;
-    const searchEngineID = '011782248725805539749:9pp0oqo5gib';
-    const placesKey = 'AIzaSyBfjNSPYzkff1Bk0Lqej2LIpI3fLCwULEk';
+    const searchEngineID = 'your_key';
+    const placesKey = 'your_key';
     const stateSealURL = 'https://www.googleapis.com/customsearch/v1?q='
         + state
         +'%20State%20Seal&cx='

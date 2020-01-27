@@ -10,7 +10,7 @@ function getWeatherCurrentLocation(req, res) {
     const lat = req.query.lat;
 
     // Call DarkSky API using user lon and lat
-    const darkSkyKey = '2219b4b59d97a1bd374872870bde5a90';
+    const darkSkyKey = 'your_key';
     const darkSkyURL = 'https://api.darksky.net/forecast/' + darkSkyKey + '/' + lat + ',' + lon;
 
     console.log('darksky url : ' + darkSkyURL);
